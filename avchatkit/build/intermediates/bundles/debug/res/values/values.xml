@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="nrtc_setting_other_device_rotation_entries"> 
+        <item>0</item> 
+        <item>90</item> 
+        <item>180</item> 
+        <item>270</item> 
+    </string-array>
+    <string-array name="nrtc_setting_other_device_rotation_values"> 
+        <item>0</item> 
+        <item>1</item> 
+        <item>2</item> 
+        <item>3</item> 
+    </string-array>
+    <string-array name="nrtc_setting_vie_crop_ratio_entries"> 
+        <item>原始比例</item> 
+        <item>16:9</item> 
+        <item>4:3</item> 
+        <item>3:2</item> 
+        <item>1:1</item> 
+    </string-array>
+    <string-array name="nrtc_setting_vie_crop_ratio_values"> 
+        <item>0</item> 
+        <item>1</item> 
+        <item>2</item> 
+        <item>3</item> 
+        <item>4</item> 
+    </string-array>
+    <string-array name="nrtc_setting_vie_hw_decoder_entries"> 
+        <item>自动</item> 
+        <item>禁用</item> 
+        <item>强制</item> 
+    </string-array>
+    <string-array name="nrtc_setting_vie_hw_decoder_values"> 
+        <item>0</item> 
+        <item>1</item> 
+        <item>2</item> 
+    </string-array>
+    <string-array name="nrtc_setting_vie_hw_encoder_entries"> 
+        <item>自动</item> 
+        <item>禁用</item> 
+        <item>强制</item> 
+    </string-array>
+    <string-array name="nrtc_setting_vie_hw_encoder_values"> 
+        <item>0</item> 
+        <item>1</item> 
+        <item>2</item> 
+    </string-array>
+    <string-array name="nrtc_setting_vie_quality_entries"> 
+        <item>Default</item> 
+        <item>Low</item> 
+        <item>Medium</item> 
+        <item>High</item> 
+        <item>480P</item> 
+        <item>720P</item>
+    </string-array>
+    <string-array name="nrtc_setting_vie_quality_values"> 
+        <item>0</item> 
+        <item>1</item> 
+        <item>2</item> 
+        <item>3</item> 
+        <item>4</item> 
+        <item>5</item> 
+    </string-array>
+    <string-array name="nrtc_setting_voe_audio_effect_entries"> 
+        <item>Disable</item> 
+        <item>SDK Built-In</item> 
+        <item>Platform Built-In</item> 
+    </string-array>
+    <string-array name="nrtc_setting_voe_audio_effect_values"> 
+        <item>0</item> 
+        <item>1</item> 
+        <item>2</item> 
+    </string-array>
+    <color name="black">#000000</color>
+    <color name="color_activity_blue_bg">#f7389fff</color>
+    <color name="color_b3b3b3">#b3b3b3</color>
+    <color name="color_black_333333">#333333</color>
+    <color name="color_blue_0888ff">#0888ff</color>
+    <color name="color_c2364b">#C2364B</color>
+    <color name="color_f2f7fc">#F2F7FC</color>
+    <color name="color_f5455e">#F5455E</color>
+    <color name="color_gray_alpha40">#66000000</color>
+    <color name="color_gray_d9d9d9">#d9d9d9</color>
+    <color name="color_grey_999999">#999999</color>
+    <color name="color_grey_d0d0d0">#d0d0d0</color>
+    <color name="color_red_f04c62">#f04c62</color>
+    <color name="split_line_grey_color_d9d9d9">#d9d9d9</color>
+    <color name="t_av_chat_setting_bar">#3C4149</color>
+    <color name="transparent">#00000000</color>
+    <color name="video_call_peer_close_cameral_text_color">#f1f1f1</color>
+    <color name="video_call_peer_close_cameral_text_shadow">#484848</color>
+    <color name="white">#ffffff</color>
+    <declare-styleable name="CircleImageView"><attr format="dimension" name="civ_border_width"/><attr format="color" name="civ_border_color"/><attr format="boolean" name="civ_border_overlay"/><attr format="color" name="civ_fill_color"/></declare-styleable>
+    <dimen name="action_bar_height">48dip</dimen>
+    <dimen name="avatar_max_size">60dip</dimen>
+    <dimen name="avatar_notification_size">48dip</dimen>
+    <dimen name="avatar_size_default">50dip</dimen>
+    <dimen name="avatar_size_in_contact">30dip</dimen>
+    <dimen name="avatar_size_in_profile">60dip</dimen>
+    <dimen name="avatar_size_in_session">40dip</dimen>
+    <dimen name="avatar_size_robot">40dip</dimen>
+    <dimen name="big_text_size">17sp</dimen>
+    <dimen name="bubble_margin_top">2dip</dimen>
+    <dimen name="bubble_padding_bottom">12dip</dimen>
+    <dimen name="bubble_padding_left">16dip</dimen>
+    <dimen name="bubble_padding_right">14dip</dimen>
+    <dimen name="bubble_padding_top">10dip</dimen>
+    <dimen name="custom_dialog_padding_vertical">15dip</dimen>
+    <dimen name="dark_line_size">3px</dimen>
+    <dimen name="dialog_padding_vertical">20dip</dimen>
+    <dimen name="dialog_text_margin_horizontal">15dip</dimen>
+    <dimen name="light_line_size">1px</dimen>
+    <dimen name="normal_text_size">16sp</dimen>
+    <dimen name="t_avchat_setting_margin">10dip</dimen>
+    <dimen name="thick_line_size">2px</dimen>
+    <dimen name="very_samll_text_size">9sp</dimen>
+    <string name="app_name">avchatkit</string>
+    <string name="avchat_audio_call_request">请求通话</string>
+    <string name="avchat_audio_call_wifi_unavailable_tip">当前非WiFi环境，每分钟将产生约0.5M的流量</string>
+    <string name="avchat_audio_to_video_invitation">对方邀请你开启视频聊天…</string>
+    <string name="avchat_audio_to_video_wait">正在等待对方开启摄像头…</string>
+    <string name="avchat_call">网络通话</string>
+    <string name="avchat_call_failed">发起通话失败</string>
+    <string name="avchat_call_finish">通话结束</string>
+    <string name="avchat_call_reject">被对方拒绝</string>
+    <string name="avchat_connecting">连接中…</string>
+    <string name="avchat_hangup">结束通话</string>
+    <string name="avchat_has_hangup">已挂断</string>
+    <string name="avchat_in_switch">请耐心等待！</string>
+    <string name="avchat_invalid_channel_id">对方已挂断</string>
+    <string name="avchat_local_call_busy">本地通话中，无法使用易信进行通话。</string>
+    <string name="avchat_local_close_camera">你关闭了摄像头</string>
+    <string name="avchat_local_protocol_low_version">版本过低，请升级后使用</string>
+    <string name="avchat_net_error_then_quit">网络异常，通话结束</string>
+    <string name="avchat_network_grade_0">网络通畅：</string>
+    <string name="avchat_network_grade_1">网络正常：</string>
+    <string name="avchat_network_grade_2">网络一般：</string>
+    <string name="avchat_network_grade_3">网络较差：</string>
+    <string name="avchat_network_unstable_notificaton">当前网络不稳定</string>
+    <string name="avchat_no_permission">暂无权限，请开通音视频服务</string>
+    <string name="avchat_no_pick_up">未接听</string>
+    <string name="avchat_no_pickup_call">未接听</string>
+    <string name="avchat_notification">正在与%1$s通话中，点击继续</string>
+    <string name="avchat_peer_busy">对方正在通话中，请稍后再拨。</string>
+    <string name="avchat_peer_close_camera">对方关闭了摄像头</string>
+    <string name="avchat_peer_protocol_low_version">对方版本过低，请提示对方升级</string>
+    <string name="avchat_pickup">接听</string>
+    <string name="avchat_receive">开启</string>
+    <string name="avchat_refuse">拒绝</string>
+    <string name="avchat_switch_to_audio">切换语音</string>
+    <string name="avchat_switch_to_video">切换视频</string>
+    <string name="avchat_switch_video_reject">对方不同意音频切换为视频！</string>
+    <string name="avchat_video_call_request">请求视频聊天…</string>
+    <string name="avchat_wait_recieve">等待对方接听…</string>
+    <string name="cancel">取消</string>
+    <string name="empty">""</string>
+    <string name="load_end">没有更多数据</string>
+    <string name="load_failed">加载失败，请点我重试</string>
+    <string name="loading">正在加载中...</string>
+    <string name="network_is_not_available">网络连接失败，请检查你的网络设置</string>
+    <string name="nrtc_setting_other">其它</string>
+    <string name="nrtc_setting_other_device_default_rotation">设备默认旋转角度(特殊设备使用)</string>
+    <string name="nrtc_setting_other_device_default_rotation_key">nrtc_setting_other_device_default_rotation_key</string>
+    <string name="nrtc_setting_other_device_rotation_fixed_offset">设备旋转角度修正偏移量(特殊设备使用)</string>
+    <string name="nrtc_setting_other_device_rotation_fixed_offset_key">nrtc_setting_other_device_rotation_fixed_offset_key</string>
+    <string name="nrtc_setting_other_server_record_audio">音频服务器录制</string>
+    <string name="nrtc_setting_other_server_record_audio_key">nrtc_setting_other_server_record_audio_key</string>
+    <string name="nrtc_setting_other_server_record_video">视频服务器录制</string>
+    <string name="nrtc_setting_other_server_record_video_key">nrtc_setting_other_server_record_video_key</string>
+    <string name="nrtc_setting_vie">视频通话</string>
+    <string name="nrtc_setting_vie_crop_ratio">画面裁剪比例</string>
+    <string name="nrtc_setting_vie_crop_ratio_key">nrtc_setting_vie_crop_ratio_key</string>
+    <string name="nrtc_setting_vie_default_front_camera">默认前置摄像头</string>
+    <string name="nrtc_setting_vie_default_front_camera_key">nrtc_setting_vie_default_front_camera_key</string>
+    <string name="nrtc_setting_vie_fps_reported">帧率汇报</string>
+    <string name="nrtc_setting_vie_fps_reported_key">nrtc_setting_vie_fps_reported_key</string>
+    <string name="nrtc_setting_vie_hw_decoder">硬件解码(仅部分设备支持)</string>
+    <string name="nrtc_setting_vie_hw_decoder_key">nrtc_setting_vie_hw_decoder_key</string>
+    <string name="nrtc_setting_vie_hw_encoder">硬件编码(仅部分设备支持)</string>
+    <string name="nrtc_setting_vie_hw_encoder_key">nrtc_setting_vie_hw_encoder_key</string>
+    <string name="nrtc_setting_vie_max_bitrate">码率(Kbps)</string>
+    <string name="nrtc_setting_vie_max_bitrate_key">nrtc_setting_vie_max_bitrate_key</string>
+    <string name="nrtc_setting_vie_quality">视频清晰度</string>
+    <string name="nrtc_setting_vie_quality_key">nrtc_setting_vie_quality_key</string>
+    <string name="nrtc_setting_vie_rotation">画面旋转</string>
+    <string name="nrtc_setting_vie_rotation_key">nrtc_setting_vie_rotation_key</string>
+    <string name="nrtc_setting_voe">语音通话</string>
+    <string name="nrtc_setting_voe_audio_aec">回音消除</string>
+    <string name="nrtc_setting_voe_audio_aec_key">nrtc_setting_voe_audio_aec_key</string>
+    <string name="nrtc_setting_voe_audio_ns">降噪</string>
+    <string name="nrtc_setting_voe_audio_ns_key">nrtc_setting_voe_audio_ns_key</string>
+    <string name="nrtc_setting_voe_call_proximity">通话期间关闭屏幕</string>
+    <string name="nrtc_setting_voe_call_proximity_key">nrtc_setting_voe_call_proximity_key</string>
+    <string name="nrtc_setting_voe_dtx">人声检测</string>
+    <string name="nrtc_setting_voe_dtx_key">nrtc_setting_voe_dtx_key</string>
+    <string name="nrtc_setting_voe_high_quality">高清语音</string>
+    <string name="nrtc_setting_voe_high_quality_key">nrtc_setting_voe_high_quality_key</string>
+    <string name="nrtc_settings">网络通话设置</string>
+    <string name="ok">确定</string>
+    <string name="online">正在直播</string>
+    <string name="save">保存</string>
+    <string name="t_avchat_create_room_fail">创建房间失败</string>
+    <string name="t_avchat_join_fail_not_exist">"加入房间失败，房间不存在"</string>
+    <string name="t_avchat_not_start_with_less_member">无法发起，人数少于2人</string>
+    <string name="t_avchat_push_content">"[网络通话]"</string>
+    <string name="t_avchat_start">发起了视频聊天</string>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/color_gray_d9d9d9</item>
+        <item name="colorAccent">@color/color_blue_0888ff</item>
+        <item name="actionBarSize">@dimen/action_bar_height</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="toolbarNavigationButtonStyle">@style/myToolbarNavigationButtonStyle</item>
+    </style>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:itemTextAppearance">?android:attr/actionMenuTextAppearance</item>
+    </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="DarkTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/color_black_333333</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/color_blue_0888ff</item>
+        <item name="actionBarSize">@dimen/action_bar_height</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="toolbarNavigationButtonStyle">@style/myToolbarNavigationButtonStyle</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="FullScreenTheme" parent="@android:style/Theme.Light.NoTitleBar.Fullscreen">
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="Toolbar.SubTitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+        <item name="android:textSize">10sp</item>
+    </style>
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="custom_dialog_message_text_style">
+        <item name="android:textSize">@dimen/normal_text_size</item>
+        <item name="android:textColor">@color/color_black_333333</item>
+        <item name="android:paddingLeft">@dimen/dialog_text_margin_horizontal</item>
+        <item name="android:paddingRight">@dimen/dialog_text_margin_horizontal</item>
+        <item name="android:paddingTop">@dimen/custom_dialog_padding_vertical</item>
+        <item name="android:paddingBottom">@dimen/custom_dialog_padding_vertical</item>
+        <item name="android:background">@drawable/nim_list_item_selector</item>
+    </style>
+    <style name="dialog_button_text_style">
+        <item name="android:textSize">@dimen/big_text_size</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@drawable/nim_list_item_selector</item>
+        <item name="android:paddingTop">@dimen/custom_dialog_padding_vertical</item>
+        <item name="android:paddingBottom">@dimen/custom_dialog_padding_vertical</item>
+    </style>
+    <style name="dialog_default_style" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="dialog_title_text_style">
+        <item name="android:textSize">@dimen/big_text_size</item>
+        <item name="android:textColor">@color/color_activity_blue_bg</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingLeft">@dimen/dialog_text_margin_horizontal</item>
+        <item name="android:paddingRight">@dimen/dialog_text_margin_horizontal</item>
+        <item name="android:paddingTop">@dimen/dialog_padding_vertical</item>
+        <item name="android:paddingBottom">@dimen/dialog_padding_vertical</item>
+    </style>
+    <style name="easy_dialog_style" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 后面的activity变暗 -->
+    </style>
+    <style name="myToolbarNavigationButtonStyle" parent="@style/Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingLeft">10dp</item>
+    </style>
+</resources>
