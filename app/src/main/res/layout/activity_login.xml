@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="180dp"
-        android:text="RTS Demo"
+        android:text="AVChat Demo"
         android:textColor="#000"
         android:textSize="23sp"
         android:typeface="monospace" />
