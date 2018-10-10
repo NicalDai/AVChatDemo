@@ -16,7 +16,6 @@ import com.netease.nim.avchatkit.R;
 import com.netease.nim.avchatkit.common.activity.UI;
 import com.netease.nim.avchatkit.common.log.LogUtil;
 import com.netease.nim.avchatkit.constant.AVChatExitCode;
-import com.netease.nim.avchatkit.constant.CallStateEnum;
 import com.netease.nim.avchatkit.controll.AVChatController;
 import com.netease.nim.avchatkit.controll.AVChatSoundPlayer;
 import com.netease.nim.avchatkit.module.AVChatTimeoutObserver;
@@ -50,7 +49,7 @@ import com.netease.nimlib.sdk.avchat.model.AVChatVideoFrame;
  * 3、监听
  * 4、切换音视频
  * 5、通知栏提醒
- * // 6、faceU
+ * 6、faceU
  * Created by winnie on 2017/12/10.
  */
 
@@ -142,6 +141,7 @@ public class AVChatActivity extends UI implements AVChatVideoUI.TouchZoneCallbac
         root = LayoutInflater.from(this).inflate(R.layout.avchat_activity, null);
         setContentView(root);
 
+        getSupportActionBar().hide();
         parseIntent();
 
         initData();
@@ -153,7 +153,6 @@ public class AVChatActivity extends UI implements AVChatVideoUI.TouchZoneCallbac
         notifier = new AVChatNotification(this);
         notifier.init(receiverId != null ? receiverId : avChatData.getAccount(), displayName);
 
-        getSupportActionBar().hide(); //去除actionbar
         // face unity
 //        initFaceU();
     }
@@ -193,12 +192,11 @@ public class AVChatActivity extends UI implements AVChatVideoUI.TouchZoneCallbac
     protected void onDestroy() {
         super.onDestroy();
 
-        if(avChatController != null){ //界面销毁时强制尝试挂断，防止出现红米Note 4X等手机在切后台点击杀死程序时，实际没有杀死的情况
-            try {
-                avChatController.hangUp(AVChatExitCode.HANGUP);
-            }catch (Exception e){
+        //界面销毁时强制尝试挂断，防止出现红米Note 4X等手机在切后台点击杀死程序时，实际没有杀死的情况
+        try {
+            manualHangUp(AVChatExitCode.HANGUP);
+        } catch (Exception e) {
 
-            }
         }
 
         if (avChatAudioUI != null) {
@@ -274,7 +272,7 @@ public class AVChatActivity extends UI implements AVChatVideoUI.TouchZoneCallbac
         audioRoot = root.findViewById(R.id.avchat_audio_layout);
         videoRoot = root.findViewById(R.id.avchat_video_layout);
         surfaceRoot = root.findViewById(R.id.avchat_surface_layout);
-        if (state == CallStateEnum.AUDIO.getValue()) {
+        if (state == AVChatType.AUDIO.getValue()) {
             // 音频
             audioRoot.setVisibility(View.VISIBLE);
             videoRoot.setVisibility(View.GONE);
@@ -353,7 +351,7 @@ public class AVChatActivity extends UI implements AVChatVideoUI.TouchZoneCallbac
 
         @Override
         public void onJoinedChannel(int code, String audioFile, String videoFile, int i) {
-            LogUtil.d(TAG, "audioFile -> " + audioFile+" videoFile -> " + videoFile);
+            LogUtil.d(TAG, "audioFile -> " + audioFile + " videoFile -> " + videoFile);
             handleWithConnectServerResult(code);
         }
 
@@ -368,7 +366,7 @@ public class AVChatActivity extends UI implements AVChatVideoUI.TouchZoneCallbac
         @Override
         public void onUserLeave(String account, int event) {
             LogUtil.d(TAG, "onUserLeave -> " + account);
-            avChatController.hangUp(AVChatExitCode.HANGUP);
+            manualHangUp(AVChatExitCode.HANGUP);
             finish();
         }
 
@@ -412,7 +410,7 @@ public class AVChatActivity extends UI implements AVChatVideoUI.TouchZoneCallbac
         public void onEvent(AVChatCommonEvent avChatHangUpInfo) {
             avChatData = avChatController.getAvChatData();
             if (avChatData != null && avChatData.getChatId() == avChatHangUpInfo.getChatId()) {
-                avChatController.onHangUp(AVChatExitCode.HANGUP);
+                hangUpByOther(AVChatExitCode.HANGUP);
                 cancelCallingNotifier();
                 // 如果是incoming call主叫方挂断，那么通知栏有通知
                 if (mIsInComingCall && !isCallEstablished) {
@@ -429,16 +427,12 @@ public class AVChatActivity extends UI implements AVChatVideoUI.TouchZoneCallbac
         public void onEvent(AVChatCalleeAckEvent ackInfo) {
             AVChatData info = avChatController.getAvChatData();
             if (info != null && info.getChatId() == ackInfo.getChatId()) {
-                AVChatSoundPlayer.instance().stop();
-
                 if (ackInfo.getEvent() == AVChatEventType.CALLEE_ACK_BUSY) {
-
-                    AVChatSoundPlayer.instance().play(AVChatSoundPlayer.RingerTypeEnum.PEER_BUSY);
-
-                    avChatController.onHangUp(AVChatExitCode.PEER_BUSY);
+                    hangUpByOther(AVChatExitCode.PEER_BUSY);
                 } else if (ackInfo.getEvent() == AVChatEventType.CALLEE_ACK_REJECT) {
-                    avChatController.onHangUp(AVChatExitCode.REJECT);
+                    hangUpByOther(AVChatExitCode.REJECT);
                 } else if (ackInfo.getEvent() == AVChatEventType.CALLEE_ACK_AGREE) {
+                    AVChatSoundPlayer.instance().stop();
                     avChatController.isCallEstablish.set(true);
                 }
             }
@@ -448,14 +442,11 @@ public class AVChatActivity extends UI implements AVChatVideoUI.TouchZoneCallbac
     Observer<Integer> timeoutObserver = new Observer<Integer>() {
         @Override
         public void onEvent(Integer integer) {
-
-            avChatController.hangUp(AVChatExitCode.CANCEL);
-
+            manualHangUp(AVChatExitCode.CANCEL);
             // 来电超时，自己未接听
             if (mIsInComingCall) {
                 activeMissCallNotifier();
             }
-
             finish();
         }
     };
@@ -573,7 +564,7 @@ public class AVChatActivity extends UI implements AVChatVideoUI.TouchZoneCallbac
     Observer<Integer> autoHangUpForLocalPhoneObserver = new Observer<Integer>() {
         @Override
         public void onEvent(Integer integer) {
-            avChatController.onHangUp(AVChatExitCode.PEER_BUSY);
+            hangUpByOther(AVChatExitCode.PEER_BUSY);
         }
     };
 
@@ -701,11 +692,34 @@ public class AVChatActivity extends UI implements AVChatVideoUI.TouchZoneCallbac
             vp.getChildAt(i).setVisibility(show ? View.VISIBLE : View.GONE);
         }
     }
+
      */
+
     @Override
     public void onTouch() {
-
+//        if (faceU == null) {
+//            return;
+//        }
+//
+//        faceU.showOrHideLayout();
     }
 
+    // 主动挂断
+    private void manualHangUp(int exitCode) {
+        releaseVideo();
+        avChatController.hangUp(exitCode);
+    }
+
+    // 被对方挂断
+    private void hangUpByOther(int exitCode) {
+        releaseVideo();
+        avChatController.onHangUp(exitCode);
+    }
+
+    private void releaseVideo() {
+        if (state == AVChatType.VIDEO.getValue()) {
+           avChatVideoUI.releaseVideo();
+        }
+    }
 
 }

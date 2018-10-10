@@ -37,6 +37,7 @@ import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.Observer;
 import com.netease.nimlib.sdk.ResponseCode;
 import com.netease.nimlib.sdk.StatusCode;
+import com.netease.nimlib.sdk.auth.AuthService;
 import com.netease.nimlib.sdk.auth.AuthServiceObserver;
 import com.netease.nimlib.sdk.avchat.AVChatCallback;
 import com.netease.nimlib.sdk.avchat.AVChatManager;
@@ -559,6 +560,7 @@ public class TeamAVChatActivity extends UI {
 
         try {
             AVChatManager.getInstance().stopVideoPreview();
+            AVChatManager.getInstance().disableVideo();
             AVChatManager.getInstance().leaveRoom2(roomId, null);
             AVChatManager.getInstance().disableRtc();
         } catch (Exception e) {
@@ -842,6 +844,13 @@ public class TeamAVChatActivity extends UI {
 
         @Override
         public void onEvent(StatusCode code) {
+
+            if(code.getValue() == 7){
+                NIMClient.getService(AuthService.class).getKickedClientType();
+            }
+
+
+
             if (code.wontAutoLogin()) {
                 AVChatSoundPlayer.instance().stop();
                 hangup();

@@ -10,6 +10,8 @@ android {
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
 
+//        renderscriptTargetApi rootProject.ext.compileSdkVersion
+//        renderscriptSupportModeEnabled true
     }
 
     sourceSets {
@@ -30,8 +32,7 @@ dependencies {
     implementation("com.android.support:design:${DESIGIN_SUPPORT_VERSION}")
     implementation("com.android.support.constraint:constraint-layout:${CONSTRAIT_SUPPORT_VERSION}")
 
-    implementation 'com.github.bumptech.glide:glide:4.2.0'
+    compile 'com.github.bumptech.glide:glide:4.2.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.2.0'
-    implementation 'jp.wasabeef:glide-transformations:3.0.1'
-
+    compileOnly 'jp.wasabeef:glide-transformations:3.0.1'
 }

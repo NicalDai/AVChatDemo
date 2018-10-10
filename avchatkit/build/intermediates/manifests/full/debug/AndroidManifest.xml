@@ -16,13 +16,15 @@
             android:name="com.netease.nim.avchatkit.activity.AVChatActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
-        <!-- 音视频 android:theme="@style/Theme.AppCompat.Dialog" -->
+        <!-- 音视频 -->
         <activity
             android:name="com.netease.nim.avchatkit.teamavchat.activity.TeamAVChatActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <!-- NRTC Settings -->
