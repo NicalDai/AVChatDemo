@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -35,6 +36,15 @@ import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.RequestCallback;
 import com.netease.nimlib.sdk.auth.AuthService;
 import com.netease.nimlib.sdk.auth.LoginInfo;
+import com.netease.nimlib.sdk.team.TeamService;
+import com.netease.nimlib.sdk.team.constant.TeamFieldEnum;
+import com.netease.nimlib.sdk.team.constant.TeamTypeEnum;
+import com.netease.nimlib.sdk.team.constant.VerifyTypeEnum;
+import com.netease.nimlib.sdk.team.model.CreateTeamResult;
+import com.netease.nimlib.sdk.team.model.Team;
+
+import java.io.Serializable;
+import java.util.HashMap;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -222,6 +232,9 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent = new Intent(LoginActivity.this,AVChatCallActivity.class);
                 startActivity(intent);
                 finish();
+
+                //TODO
+                createTeam();
             }
 
             @Override
@@ -265,5 +278,33 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         return keyString;
+    }
+
+    private void createTeam(){
+        // 群组类型
+        TeamTypeEnum type = TeamTypeEnum.Advanced;
+// 创建时可以预设群组的一些相关属性，如果是普通群，仅群名有效。
+// fields 中，key 为数据字段，value 对对应的值，该值类型必须和 field 中定义的 fieldType 一致
+        HashMap<TeamFieldEnum, Serializable> fields = new HashMap<TeamFieldEnum, Serializable>();
+        fields.put(TeamFieldEnum.Name, "ceshi");
+//        fields.put(TeamFieldEnum.Introduce, teamIntroduce);
+        fields.put(TeamFieldEnum.VerifyType, VerifyTypeEnum.Free);
+        NIMClient.getService(TeamService.class).createTeam(fields, type, "", null)
+                .setCallback(new RequestCallback<CreateTeamResult>() {
+                    @Override
+                    public void onSuccess(CreateTeamResult createTeamResult) {
+                        Log.d("创建群组", "onSuccess: 成功");
+                    }
+
+                    @Override
+                    public void onFailed(int i) {
+                        Log.d("创建群组", "onFailed: " + i);
+                    }
+
+                    @Override
+                    public void onException(Throwable throwable) {
+                        Log.d("创建群组", "onException: "+ throwable.toString());
+                    }
+                });
     }
 }
