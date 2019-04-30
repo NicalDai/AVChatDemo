@@ -4,11 +4,13 @@ import android.app.Application;
 import android.content.Context;
 
 import com.netease.nical.avchatdemo.AVChatInit.AVUserinfoProvider;
+import com.netease.nical.avchatdemo.mixpush.DemoMixPushMessageHandler;
 import com.netease.nim.avchatkit.AVChatKit;
 import com.netease.nim.avchatkit.config.AVChatOptions;
 import com.netease.nim.avchatkit.model.ITeamDataProvider;
 import com.netease.nim.avchatkit.model.IUserInfoProvider;
 import com.netease.nimlib.sdk.NIMClient;
+import com.netease.nimlib.sdk.mixpush.NIMPushClient;
 import com.netease.nimlib.sdk.uinfo.model.UserInfo;
 import com.netease.nimlib.sdk.util.NIMUtil;
 
@@ -17,9 +19,12 @@ public class MainApplicaiton extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        NIMClient.init(this,null,null);
+
+        NIMClient.init(this,null,NimSDKOptionConfig.getSDKOptions(this));
         if(NIMUtil.isMainProcess(this)){
             initAVChatKit();
+            // 注册自定义推送消息处理，这个是可选项
+//            NIMPushClient.registerMixPushMessageHandler(new DemoMixPushMessageHandler());
         }
     }
 

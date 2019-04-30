@@ -25,7 +25,13 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    compile project(path: ':avchatkit')
+
     implementation 'de.hdodenhof:circleimageview:2.1.0'
     implementation files('libs/tbs_sdk_thirdapp_v2.6.0.1045_36900_sharewithdownload_obfs_20161207_162008.jar')
+    implementation files('libs/base-2.6.0.301.aar')
+    implementation files('libs/push-2.6.0.301.aar')
+
+    compile project(path: ':avchatkit')
+
+
 }

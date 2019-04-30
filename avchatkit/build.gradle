@@ -26,13 +26,24 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
     implementation("com.android.support:appcompat-v7:${V7_APPCOMPAT_VERSION}")
     implementation("com.android.support:recyclerview-v7:${RECYCLER_VIEW_SUPPORT_VERSION}")
-    implementation("com.android.support:design:${DESIGIN_SUPPORT_VERSION}")
+    api("com.android.support:design:${DESIGIN_SUPPORT_VERSION}")
     implementation("com.android.support.constraint:constraint-layout:${CONSTRAIT_SUPPORT_VERSION}")
 
-    compile 'com.github.bumptech.glide:glide:4.2.0'
+    api 'com.github.bumptech.glide:glide:4.2.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.2.0'
-    compileOnly 'jp.wasabeef:glide-transformations:3.0.1'
+    api 'jp.wasabeef:glide-transformations:3.0.1'
+
+    // 添加依赖。注意，版本号必须一致。
+    // 基础功能 (必需)
+    api 'com.netease.nimlib:basesdk:6.4.0'
+    // 音视频和互动白板服务需要
+    api 'com.netease.nimlib:nrtc:6.4.0'
+    // 音视频需要
+    api 'com.netease.nimlib:avchat:6.4.0'
+    // 小米、华为、魅族、fcm 推送
+    api 'com.netease.nimlib:push:6.4.0'
+
 }

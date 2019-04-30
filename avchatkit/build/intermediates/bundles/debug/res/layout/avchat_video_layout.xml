@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />
 
+
     <include
         android:id="@+id/avchat_record_layout"
         layout="@layout/avchat_record_layout"

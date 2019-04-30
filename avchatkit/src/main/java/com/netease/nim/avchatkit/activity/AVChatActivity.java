@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-
 import com.netease.nim.avchatkit.AVChatKit;
 import com.netease.nim.avchatkit.AVChatProfile;
 import com.netease.nim.avchatkit.R;
@@ -141,7 +140,6 @@ public class AVChatActivity extends UI implements AVChatVideoUI.TouchZoneCallbac
         root = LayoutInflater.from(this).inflate(R.layout.avchat_activity, null);
         setContentView(root);
 
-        getSupportActionBar().hide();
         parseIntent();
 
         initData();
@@ -247,7 +245,7 @@ public class AVChatActivity extends UI implements AVChatVideoUI.TouchZoneCallbac
 
     private void initData() {
         avChatController = new AVChatController(this, avChatData);
-        avChatAudioUI = new AVChatAudioUI(this, root, avChatData, displayName, avChatController, this);
+        avChatAudioUI = new AVChatAudioUI(this, root, displayName, avChatController, this);
         avChatVideoUI = new AVChatVideoUI(this, root, avChatData, displayName, avChatController, this, this);
     }
 
@@ -593,7 +591,8 @@ public class AVChatActivity extends UI implements AVChatVideoUI.TouchZoneCallbac
         avChatVideoUI.onVideoToAudio();
         // 判断是否静音，扬声器是否开启，对界面相应控件进行显隐处理。
         avChatAudioUI.onVideoToAudio(AVChatManager.getInstance().isLocalAudioMuted(),
-                AVChatManager.getInstance().speakerEnabled());
+                AVChatManager.getInstance().speakerEnabled(),
+                avChatData != null ? avChatData.getAccount() : receiverId);
     }
 
     @Override
@@ -657,43 +656,41 @@ public class AVChatActivity extends UI implements AVChatVideoUI.TouchZoneCallbac
 
     /**
      * ******************************** face unity 接入 ********************************
-
-
-    private void initFaceU() {
-        showOrHideFaceULayout(false); // hide default
-
-        if (VersionUtil.isCompatible(Build.VERSION_CODES.JELLY_BEAN_MR2) && FaceU.hasAuthorized()) {
-            // async load FaceU
-            FaceU.createAndAttach(AVChatActivity.this, findView(R.id.avchat_video_face_unity), new FaceU.Response<FaceU>() {
-                @Override
-                public void onResult(FaceU faceU) {
-                    AVChatActivity.this.faceU = faceU;
-                    showOrHideFaceULayout(true); // show
-                }
-            });
-        }
-    }
-
-    private void destroyFaceU() {
-        if (faceU == null) {
-            return;
-        }
-
-        try {
-            faceU.destroy();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void showOrHideFaceULayout(boolean show) {
-        ViewGroup vp = findView(R.id.avchat_video_face_unity);
-        for (int i = 0; i < vp.getChildCount(); i++) {
-            vp.getChildAt(i).setVisibility(show ? View.VISIBLE : View.GONE);
-        }
-    }
-
      */
+
+//    private void initFaceU() {
+//        showOrHideFaceULayout(false); // hide default
+//
+//        if (VersionUtil.isCompatible(Build.VERSION_CODES.JELLY_BEAN_MR2) && FaceU.hasAuthorized()) {
+//            // async load FaceU
+//            FaceU.createAndAttach(AVChatActivity.this, findView(R.id.avchat_video_face_unity), new FaceU.Response<FaceU>() {
+//                @Override
+//                public void onResult(FaceU faceU) {
+//                    AVChatActivity.this.faceU = faceU;
+//                    showOrHideFaceULayout(true); // show
+//                }
+//            });
+//        }
+//    }
+
+//    private void destroyFaceU() {
+//        if (faceU == null) {
+//            return;
+//        }
+//
+//        try {
+//            faceU.destroy();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+//    private void showOrHideFaceULayout(boolean show) {
+//        ViewGroup vp = findView(R.id.avchat_video_face_unity);
+//        for (int i = 0; i < vp.getChildCount(); i++) {
+//            vp.getChildAt(i).setVisibility(show ? View.VISIBLE : View.GONE);
+//        }
+//    }
 
     @Override
     public void onTouch() {
@@ -712,13 +709,18 @@ public class AVChatActivity extends UI implements AVChatVideoUI.TouchZoneCallbac
 
     // 被对方挂断
     private void hangUpByOther(int exitCode) {
-        releaseVideo();
-        avChatController.onHangUp(exitCode);
+        if (exitCode == AVChatExitCode.PEER_BUSY) {
+            avChatController.hangUp(AVChatExitCode.HANGUP);
+            finish();
+        } else {
+            releaseVideo();
+            avChatController.onHangUp(exitCode);
+        }
     }
 
     private void releaseVideo() {
         if (state == AVChatType.VIDEO.getValue()) {
-           avChatVideoUI.releaseVideo();
+            avChatVideoUI.releaseVideo();
         }
     }
 

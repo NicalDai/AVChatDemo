@@ -1,76 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="nrtc_setting_other_device_rotation_entries"> 
-        <item>0</item> 
-        <item>90</item> 
-        <item>180</item> 
-        <item>270</item> 
+    <string-array name="nrtc_setting_other_device_rotation_entries">
+        <item>0</item>
+        <item>90</item>
+        <item>180</item>
+        <item>270</item>
     </string-array>
-    <string-array name="nrtc_setting_other_device_rotation_values"> 
-        <item>0</item> 
-        <item>1</item> 
-        <item>2</item> 
-        <item>3</item> 
+    <string-array name="nrtc_setting_other_device_rotation_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
-    <string-array name="nrtc_setting_vie_crop_ratio_entries"> 
-        <item>原始比例</item> 
-        <item>16:9</item> 
-        <item>4:3</item> 
-        <item>3:2</item> 
-        <item>1:1</item> 
+    <string-array name="nrtc_setting_vie_crop_ratio_entries">
+        <item>原始比例</item>
+        <item>16:9</item>
+        <item>4:3</item>
+        <item>3:2</item>
+        <item>1:1</item>
     </string-array>
-    <string-array name="nrtc_setting_vie_crop_ratio_values"> 
-        <item>0</item> 
-        <item>1</item> 
-        <item>2</item> 
-        <item>3</item> 
-        <item>4</item> 
+    <string-array name="nrtc_setting_vie_crop_ratio_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </string-array>
-    <string-array name="nrtc_setting_vie_hw_decoder_entries"> 
-        <item>自动</item> 
-        <item>禁用</item> 
-        <item>强制</item> 
+    <string-array name="nrtc_setting_vie_hw_decoder_entries">
+        <item>自动</item>
+        <item>禁用</item>
+        <item>强制</item>
     </string-array>
-    <string-array name="nrtc_setting_vie_hw_decoder_values"> 
-        <item>0</item> 
-        <item>1</item> 
-        <item>2</item> 
+    <string-array name="nrtc_setting_vie_hw_decoder_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
-    <string-array name="nrtc_setting_vie_hw_encoder_entries"> 
-        <item>自动</item> 
-        <item>禁用</item> 
-        <item>强制</item> 
+    <string-array name="nrtc_setting_vie_hw_encoder_entries">
+        <item>自动</item>
+        <item>禁用</item>
+        <item>强制</item>
     </string-array>
-    <string-array name="nrtc_setting_vie_hw_encoder_values"> 
-        <item>0</item> 
-        <item>1</item> 
-        <item>2</item> 
+    <string-array name="nrtc_setting_vie_hw_encoder_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
-    <string-array name="nrtc_setting_vie_quality_entries"> 
-        <item>Default</item> 
-        <item>Low</item> 
-        <item>Medium</item> 
-        <item>High</item> 
-        <item>480P</item> 
+    <string-array name="nrtc_setting_vie_quality_entries">
+        <item>Default</item>
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+        <item>480P</item>
         <item>720P</item>
     </string-array>
-    <string-array name="nrtc_setting_vie_quality_values"> 
-        <item>0</item> 
-        <item>1</item> 
-        <item>2</item> 
-        <item>3</item> 
-        <item>4</item> 
-        <item>5</item> 
+    <string-array name="nrtc_setting_vie_quality_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
     </string-array>
-    <string-array name="nrtc_setting_voe_audio_effect_entries"> 
-        <item>Disable</item> 
-        <item>SDK Built-In</item> 
-        <item>Platform Built-In</item> 
+    <string-array name="nrtc_setting_voe_audio_effect_entries">
+        <item>Disable</item>
+        <item>SDK Built-In</item>
+        <item>Platform Built-In</item>
     </string-array>
-    <string-array name="nrtc_setting_voe_audio_effect_values"> 
-        <item>0</item> 
-        <item>1</item> 
-        <item>2</item> 
+    <string-array name="nrtc_setting_voe_audio_effect_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
     <color name="black">#000000</color>
     <color name="color_activity_blue_bg">#f7389fff</color>
@@ -120,13 +120,16 @@
     <string name="avchat_audio_call_wifi_unavailable_tip">当前非WiFi环境，每分钟将产生约0.5M的流量</string>
     <string name="avchat_audio_to_video_invitation">对方邀请你开启视频聊天…</string>
     <string name="avchat_audio_to_video_wait">正在等待对方开启摄像头…</string>
+    <string name="avchat_be_rejected">被拒绝</string>
     <string name="avchat_call">网络通话</string>
     <string name="avchat_call_failed">发起通话失败</string>
     <string name="avchat_call_finish">通话结束</string>
     <string name="avchat_call_reject">被对方拒绝</string>
+    <string name="avchat_cancel">已取消</string>
     <string name="avchat_connecting">连接中…</string>
     <string name="avchat_hangup">结束通话</string>
     <string name="avchat_has_hangup">已挂断</string>
+    <string name="avchat_has_reject">已拒绝</string>
     <string name="avchat_in_switch">请耐心等待！</string>
     <string name="avchat_invalid_channel_id">对方已挂断</string>
     <string name="avchat_local_call_busy">本地通话中，无法使用易信进行通话。</string>
@@ -192,8 +195,6 @@
     <string name="nrtc_setting_voe_audio_ns_key">nrtc_setting_voe_audio_ns_key</string>
     <string name="nrtc_setting_voe_call_proximity">通话期间关闭屏幕</string>
     <string name="nrtc_setting_voe_call_proximity_key">nrtc_setting_voe_call_proximity_key</string>
-    <string name="nrtc_setting_voe_dtx">人声检测</string>
-    <string name="nrtc_setting_voe_dtx_key">nrtc_setting_voe_dtx_key</string>
     <string name="nrtc_setting_voe_high_quality">高清语音</string>
     <string name="nrtc_setting_voe_high_quality_key">nrtc_setting_voe_high_quality_key</string>
     <string name="nrtc_settings">网络通话设置</string>

@@ -21,6 +21,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.netease.nical.avchatdemo.DemoCache;
 import com.netease.nical.avchatdemo.Login.CustomBoolean;
 import com.netease.nical.avchatdemo.Login.DataSaveToLocal;
 import com.netease.nical.avchatdemo.Login.EditTextClearTools;
@@ -220,7 +221,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(LoginInfo loginInfo) {
                 Toast.makeText(LoginActivity.this, "登陆成功！", Toast.LENGTH_SHORT).show();
-
+                DemoCache.setContext(getApplicationContext());
                 AVChatKit.setAccount(loginInfo.getAccount());
                 //判断是否需要本地存储密码(CheckBox打钩)
                 if (needRecordPassword){
@@ -233,8 +234,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
 
-                //TODO
-                createTeam();
+
             }
 
             @Override
