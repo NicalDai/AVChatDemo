@@ -1,15 +1,21 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.netease.nical.avchatdemo"
         minSdkVersion 19
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -20,18 +26,18 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation "com.android.support:appcompat-v7:${V7_APPCOMPAT_VERSION}"
-    implementation "com.android.support.constraint:constraint-layout:${CONSTRAIT_SUPPORT_VERSION}"
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
 
     implementation 'de.hdodenhof:circleimageview:2.1.0'
     implementation files('libs/tbs_sdk_thirdapp_v2.6.0.1045_36900_sharewithdownload_obfs_20161207_162008.jar')
     implementation files('libs/base-2.6.0.301.aar')
     implementation files('libs/push-2.6.0.301.aar')
 
-    compile project(path: ':avchatkit')
+    api project(path: ':avchatkit')
 
 
 }

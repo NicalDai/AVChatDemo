@@ -5,6 +5,8 @@ import com.netease.nimlib.sdk.avchat.model.AVChatAudioFrame;
 import com.netease.nimlib.sdk.avchat.model.AVChatNetworkStats;
 import com.netease.nimlib.sdk.avchat.model.AVChatSessionStats;
 import com.netease.nimlib.sdk.avchat.model.AVChatVideoFrame;
+import com.netease.nrtc.sdk.common.VideoFilterParameter;
+import com.netease.nrtc.sdk.video.VideoFrame;
 
 import java.util.Map;
 import java.util.Set;
@@ -51,6 +53,46 @@ public class SimpleAVChatStateObserver implements AVChatStateObserver {
 
     @Override
     public void onAudioEffectPlayEvent(int effectId, int event) {
+
+    }
+
+    @Override
+    public void onPublishVideoResult(int result) {
+
+    }
+
+    @Override
+    public void onUnpublishVideoResult(int result) {
+
+    }
+
+    @Override
+    public void onSubscribeVideoResult(String account, int videoType, int result) {
+
+    }
+
+    @Override
+    public void onUnsubscribeVideoResult(String account, int videoType, int result) {
+
+    }
+
+    @Override
+    public void onRemotePublishVideo(String account, int[] videoTypes) {
+
+    }
+
+    @Override
+    public void onRemoteUnpublishVideo(String account) {
+
+    }
+
+    @Override
+    public void onUnsubscribeAudioResult(int result) {
+
+    }
+
+    @Override
+    public void onSubscribeAudioResult(int result) {
 
     }
 
@@ -153,5 +195,20 @@ public class SimpleAVChatStateObserver implements AVChatStateObserver {
     @Override
     public void onLiveEvent(int event) {
 
+    }
+
+    @Override
+    public void onAVRecordingStart(String account, String fileDir) {
+
+    }
+
+    @Override
+    public void onAudioRecordingStart(String fileDir) {
+
+    }
+
+    @Override
+    public boolean onVideoFrameFilter(VideoFrame input, VideoFrame[] outputFrames, VideoFilterParameter filterParameter) {
+        return false;
     }
 }

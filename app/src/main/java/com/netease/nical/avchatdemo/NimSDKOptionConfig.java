@@ -4,8 +4,8 @@ import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
 
+
 import com.netease.nimlib.sdk.SDKOptions;
-import com.netease.nimlib.sdk.mixpush.MixPushConfig;
 
 import java.io.IOException;
 
@@ -44,8 +44,6 @@ public class NimSDKOptionConfig {
         // 是否检查manifest 配置，调试阶段打开，调试通过之后请关掉
         options.checkManifestConfig = false;
 
-        options.mixPushConfig = buildMixPushConfig();
-
 
         // 打开消息撤回未读数-1的开关
         options.shouldConsiderRevokedMessageUnreadCount = true;
@@ -76,16 +74,5 @@ public class NimSDKOptionConfig {
         return storageRootPath;
     }
 
-    private static MixPushConfig buildMixPushConfig() {
-
-        // 第三方推送配置
-        MixPushConfig config = new MixPushConfig();
-
-
-        // 华为推送
-        config.hwCertificateName = "aheHWPush";
-
-        return config;
-    }
 
 }

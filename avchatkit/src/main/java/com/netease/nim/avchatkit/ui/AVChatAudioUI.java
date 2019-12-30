@@ -209,6 +209,8 @@ public class AVChatAudioUI implements View.OnClickListener, ToggleListener {
         recordToggle.setSelected(avChatController.isRecording());
 
         showRecordView(avChatController.isRecording(), isRecordWarning);
+
+        AVChatManager.getInstance().disableVideo();
     }
 
     public void showIncomingAudioToVideo() {

@@ -4,6 +4,11 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.appTargetSdkVersion
@@ -26,24 +31,21 @@ android {
 }
 
 dependencies {
-    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
-    implementation("com.android.support:appcompat-v7:${V7_APPCOMPAT_VERSION}")
-    implementation("com.android.support:recyclerview-v7:${RECYCLER_VIEW_SUPPORT_VERSION}")
-    api("com.android.support:design:${DESIGIN_SUPPORT_VERSION}")
-    implementation("com.android.support.constraint:constraint-layout:${CONSTRAIT_SUPPORT_VERSION}")
-
-    api 'com.github.bumptech.glide:glide:4.2.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.2.0'
-    api 'jp.wasabeef:glide-transformations:3.0.1'
-
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "androidx.appcompat:appcompat:${ANDROIDX_APPCOMPAT_VERSION}"
+    implementation "androidx.recyclerview:recyclerview:${RECYCLER_VIEW_X_VERSION}"
+    implementation "com.google.android.material:material:${MATERIAL_GOOGLE_VERSION}"
+    implementation "androidx.constraintlayout:constraintlayout:${CONSTRAINT_X_VERSION}"
+    api 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     // 添加依赖。注意，版本号必须一致。
     // 基础功能 (必需)
-    api 'com.netease.nimlib:basesdk:6.4.0'
+    api 'com.netease.nimlib:basesdk:7.1.0'
     // 音视频和互动白板服务需要
-    api 'com.netease.nimlib:nrtc:6.4.0'
+    api 'com.netease.nimlib:nrtc:7.1.0'
     // 音视频需要
-    api 'com.netease.nimlib:avchat:6.4.0'
+    api 'com.netease.nimlib:avchat:7.1.0'
     // 小米、华为、魅族、fcm 推送
-    api 'com.netease.nimlib:push:6.4.0'
-
+    api 'com.netease.nimlib:push:7.1.0'
+    implementation files('libs/fastjson-1.1.34.android.jar')
 }

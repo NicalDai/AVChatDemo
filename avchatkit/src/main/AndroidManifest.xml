@@ -8,7 +8,7 @@
             android:name="com.netease.nim.avchatkit.activity.AVChatActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"
+            android:theme="@style/Theme.AppCompat"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <!-- 音视频 -->
@@ -16,7 +16,7 @@
             android:name=".teamavchat.activity.TeamAVChatActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"
+            android:theme="@style/Theme.AppCompat"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <!-- NRTC Settings -->
