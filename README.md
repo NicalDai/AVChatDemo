@@ -5,6 +5,10 @@ https://github.com/netease-im/NIM_Android_AVChatKit
 
 # 版本迭代
 
+## 2019-12-30
+1、升级sdk版本到7.1.0
+2、项目迁移到Android X
+
 ## 2019-04-30
 1、更新sdk版本到6.4.0
 
